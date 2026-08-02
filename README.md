@@ -1,106 +1,122 @@
-# 🔐 Flask Brute Force Attack Demo
+# 🔐 Flask Brute Force Attack Demo using Burp Suite
 
-A deliberately vulnerable Flask-based authentication application designed to demonstrate **Brute Force Attacks** using **Burp Suite Intruder**. This project is intended for cybersecurity education, ethical hacking labs, and understanding authentication vulnerabilities in web applications.
+> A deliberately vulnerable Flask authentication application designed to demonstrate **Brute Force attacks** using **Burp Suite Intruder** for cybersecurity education, ethical hacking labs, and secure authentication awareness.
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)
+![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Community-orange)
+![License](https://img.shields.io/badge/License-Educational-red)
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
-This project simulates a simple login system with intentionally weak authentication controls. It allows learners to observe how attackers can automate login attempts using Burp Suite and understand the importance of implementing secure authentication mechanisms.
+Authentication is the first layer of security in any web application. Weak authentication mechanisms can allow attackers to gain unauthorized access through password guessing or brute-force attacks.
 
-> **⚠️ Educational Purpose Only**
+This project demonstrates how a vulnerable Flask login application can be exploited using **Burp Suite Intruder**. It is designed to help students understand authentication vulnerabilities, HTTP request analysis, brute-force attacks, and secure authentication practices.
+
+> **⚠ Educational Purpose Only**
 >
-> This application is intentionally insecure and should only be used in controlled lab environments for learning and security testing.
+> This application is intentionally vulnerable and should only be used in a controlled lab environment for learning and security testing.
 
 ---
 
-## 🚀 Features
+# 🎯 Project Objectives
 
-* Flask-based login system
-* Admin authentication
-* Protected dashboard
-* Login and logout functionality
-* Vulnerable to brute-force attacks
-* Compatible with Burp Suite Intruder demonstrations
-* Simple UI built with HTML, CSS, and Bootstrap
-
----
-
-## 🛠️ Tech Stack
-
-* Python
-* Flask
-* HTML5
-* CSS3
-* Bootstrap
-* Burp Suite Community Edition
+- Build a Flask-based authentication system
+- Understand Authentication & Authorization
+- Learn HTTP GET and POST requests
+- Demonstrate Brute Force attacks using Burp Suite
+- Analyze HTTP requests and responses
+- Identify authentication vulnerabilities
+- Learn secure coding and mitigation techniques
 
 ---
 
-## 📂 Project Structure
+# 🚀 Features
 
-```
-brute-force-demo/
+- Flask-based Login System
+- Admin Authentication
+- Protected Dashboard
+- Login & Logout Functionality
+- Burp Suite Intruder Compatible
+- Demonstrates Brute Force Vulnerability
+- Simple Responsive UI
+- Educational Security Lab
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+- Python
+- Flask
+
+## Frontend
+
+- HTML5
+- CSS3
+- Bootstrap
+
+## Security Tools
+
+- Burp Suite Community Edition
+
+---
+
+# 📂 Project Structure
+
+```text
+BRUTE-FORCE/
 │
 ├── app.py
-├── requirements.txt
+├── dashboard.html
+├── user.txt
+├── README.md
 │
 ├── templates/
+│   ├── admin.html
 │   ├── login.html
-│   ├── dashboard.html
-│   └── products.html
+│   ├── products.html
+│   └── register.html
 │
-├── static/
-│   ├── css/
-│   └── images/
-│
-└── README.md
+└── static/
+    ├── aws.png
+    ├── cyber.jfif
+    ├── react.png
+    └── Screenshot 2024-04-14 192823.png
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙ Installation
 
-Clone the repository:
+## Clone Repository
 
 ```bash
 git clone https://github.com/your-username/flask-brute-force-demo.git
+```
+
+## Navigate to Project
+
+```bash
 cd flask-brute-force-demo
 ```
 
-Create a virtual environment (optional):
+## Install Dependencies
 
 ```bash
-python -m venv venv
+pip install flask
 ```
 
-Activate the environment:
-
-**Windows**
-
-```bash
-venv\Scripts\activate
-```
-
-**Linux / macOS**
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the application:
+## Run the Application
 
 ```bash
 python app.py
 ```
 
-Open your browser:
+## Open Browser
 
 ```
 http://127.0.0.1:5000
@@ -108,7 +124,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 🔑 Demo Credentials
+# 🔑 Demo Credentials
 
 ```
 Username : admin
@@ -117,85 +133,176 @@ Password : adminpassword
 
 ---
 
-## 🧪 Demonstrating a Brute Force Attack
+# 🛰 Project Architecture
+
+```
+Browser
+   │
+   ▼
+Login Page
+   │
+POST Request
+   │
+   ▼
+Flask Server
+   │
+Credential Validation
+   │
+ ┌───────────────┐
+ │               │
+ ▼               ▼
+Success        Failure
+ │               │
+ ▼               ▼
+Dashboard    Login Page
+```
+
+Burp Suite acts as a proxy between the browser and Flask server, allowing HTTP requests to be intercepted, modified, and replayed.
+
+---
+
+# 🔄 Authentication Workflow
+
+1. User enters username and password.
+2. Browser sends a POST request to the Flask server.
+3. Flask validates the credentials.
+4. If credentials are correct, the dashboard is displayed.
+5. Otherwise, an authentication error is returned.
+
+---
+
+# 🧪 Brute Force Attack Demonstration
 
 1. Start the Flask application.
-2. Configure your browser to use Burp Suite as a proxy.
-3. Capture the login POST request.
-4. Send the request to **Intruder**.
-5. Mark the password field as the payload position.
-6. Load a custom password wordlist.
-7. Launch the attack.
-8. Analyze the responses to identify the valid credentials.
+2. Open Burp Suite.
+3. Configure the browser proxy.
+4. Capture the login POST request.
+5. Send the request to Intruder.
+6. Select the password parameter as the payload position.
+7. Load a custom password wordlist.
+8. Launch the attack.
+9. Compare HTTP responses.
+10. Identify the correct credentials.
 
 ---
 
-## 🔍 Security Weaknesses Demonstrated
+# 🔍 Vulnerabilities Demonstrated
 
-* Unlimited login attempts
-* No account lockout
-* No rate limiting
-* No CAPTCHA protection
-* Hardcoded credentials
-* Username enumeration
-* No password hashing
-* No session-based authentication
-* Insecure authentication workflow
-
----
-
-## 🛡️ Recommended Security Improvements
-
-* Password hashing using bcrypt
-* Secure session management
-* Account lockout after multiple failed attempts
-* Rate limiting
-* CAPTCHA or reCAPTCHA
-* Generic authentication error messages
-* Multi-Factor Authentication (MFA)
-* HTTPS enforcement
-* Database-backed user authentication
+- Unlimited Login Attempts
+- No Account Lockout
+- No Rate Limiting
+- No CAPTCHA
+- Hardcoded Credentials
+- Username Enumeration
+- Plain Text Password Storage
+- No Password Hashing
+- No Secure Session Management
+- No HTTPS
+- Information Leakage Through HTTP Responses
 
 ---
 
-## 🎯 Learning Outcomes
+# 🛡 Security Improvements
+
+- Account Lockout
+- Password Hashing (bcrypt)
+- CAPTCHA / reCAPTCHA
+- Rate Limiting
+- Multi-Factor Authentication (MFA)
+- HTTPS
+- Secure Session Management
+- Database Authentication
+- Generic Error Messages
+- Strong Password Policy
+
+---
+
+# 🛰 Burp Suite Modules Used
+
+- Proxy
+- Intruder
+- Repeater
+
+---
+
+# 📚 Learning Outcomes
 
 After completing this project, you will understand:
 
-* How web authentication works
-* HTTP GET and POST requests
-* Authentication vulnerabilities
-* Burp Suite Proxy and Intruder
-* Brute-force attack methodology
-* Secure authentication design
-* Defensive security best practices
+- Authentication & Authorization
+- Flask Authentication Workflow
+- HTTP Requests and Responses
+- Burp Suite Proxy
+- Burp Suite Intruder
+- Brute Force Attack Methodology
+- Authentication Vulnerabilities
+- Secure Authentication Design
+- Defensive Security Practices
 
 ---
 
+# 🧠 MITRE ATT&CK Mapping
 
-## 📚 Skills Demonstrated
+| Attack | MITRE ATT&CK |
+|---------|--------------|
+| Brute Force | T1110 |
+| Password Guessing | T1110.001 |
+| Valid Accounts | T1078 |
+| Adversary-in-the-Middle | T1557 |
 
-* Flask Development
-* Web Security
-* Authentication
-* Burp Suite
-* Penetration Testing Fundamentals
-* HTTP Request Analysis
-* Vulnerability Assessment
-* Cybersecurity Lab Development
 
 ---
 
-## ⚠️ Disclaimer
+# 🚀 Future Enhancements
 
-This project is developed **strictly for educational and ethical cybersecurity training purposes**. Do **not** use these techniques against systems you do not own or do not have explicit authorization to test. Unauthorized security testing may violate laws and organizational policies.
+- Database Integration
+- bcrypt Password Hashing
+- Flask Sessions
+- User Registration
+- CAPTCHA
+- Multi-Factor Authentication
+- JWT Authentication
+- Login Activity Logs
+- Rate Limiting
+- Admin Dashboard
+- SIEM Integration
 
 ---
 
-## 👨‍💻 Author
+# 💡 Skills Demonstrated
+
+- Python
+- Flask
+- HTML5
+- CSS3
+- Bootstrap
+- Web Authentication
+- HTTP Protocol
+- Burp Suite
+- Web Penetration Testing
+- Authentication Security
+- Secure Coding
+- Vulnerability Assessment
+- Cybersecurity Fundamentals
+
+---
+
+# ⚠ Disclaimer
+
+This project is developed **strictly for educational and ethical cybersecurity training purposes**.
+
+Only perform penetration testing and brute-force demonstrations on systems you own or have explicit authorization to test.
+
+Unauthorized testing of third-party systems is illegal and unethical.
+
+---
+
+# 👨‍💻 Author
 
 **Soumya Hazra**
 
-* Cybersecurity Enthusiast
-* SOC Analyst Aspirant
-* GitHub: https://github.com/Soumya-CSE
+- 🎓 B.Tech CSE Student
+- 🛡 SOC Analyst Aspirant
+- 🔐 Cybersecurity Enthusiast
+
+**GitHub:** https://github.com/Soumya-CSE

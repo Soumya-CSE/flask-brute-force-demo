@@ -299,7 +299,7 @@ Unauthorized testing of third-party systems is illegal and unethical.
 
 # 👨‍💻 Author
 
-**Soumya Hazra**
+**Soumya Kanti Hazra**
 
 - 🎓 B.Tech CSE Student
 - 🛡 SOC Analyst Aspirant
